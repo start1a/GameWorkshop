@@ -82,8 +82,8 @@ public class FragmentRobot extends Fragment {
         ListView_worker = (ListView) getView().findViewById(R.id.listRobot);
         List_worker = new ArrayList<Worker>();
 
-        List_worker.add(new Worker("Normal", 120, 0, 0, 0, 0, 150, 1, 1));
-        List_worker.add(new Worker("Strong", 220, 0, 0, 0, 0, 250, 3, 1));
+        List_worker.add(new Worker("Normal", 120, 0, 0, 0, 0, 100, 1, 1));
+        List_worker.add(new Worker("Strong", 180, 0, 0, 0, 0, 250, 3, 1));
         List_worker.add(new Worker("Fast", 75, 0, 0, 0, 0, 120,  1, 3));
         Adapter_robotList = new Adapter_WorkerList(getActivity(), List_worker);
         ListView_worker.setAdapter(Adapter_robotList);
