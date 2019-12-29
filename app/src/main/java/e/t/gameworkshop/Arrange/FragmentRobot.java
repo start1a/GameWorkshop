@@ -42,7 +42,7 @@ public class FragmentRobot extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private Data_FragToActivity mRobotListener;
+    private Interface_RobotFragment mRobotListener;
 
 
     public FragmentRobot() {
@@ -127,7 +127,7 @@ public class FragmentRobot extends Fragment {
         });
     }
 
-    public interface Data_FragToActivity {
+    public interface Interface_RobotFragment {
         // GameActivity 에서 Override 할 함수
         void AddRobot(Worker worker, int row, int col);
 
@@ -205,8 +205,8 @@ public class FragmentRobot extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof Data_FragToActivity) {
-            mRobotListener = (Data_FragToActivity) context;
+        if (context instanceof Interface_RobotFragment) {
+            mRobotListener = (Interface_RobotFragment) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");

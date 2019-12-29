@@ -53,9 +53,9 @@ public class FragmentScript extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private static InterfaceScript mScriptListener;
+    private static InterfaceScriptFragment mScriptListener;
 
-    public interface InterfaceScript {
+    public interface InterfaceScriptFragment {
         void ViewProgram();
         void OnLongClick();
     }
@@ -94,8 +94,8 @@ public class FragmentScript extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof FragmentScript.InterfaceScript) {
-            mScriptListener = (FragmentScript.InterfaceScript) context;
+        if (context instanceof FragmentScript.InterfaceScriptFragment) {
+            mScriptListener = (FragmentScript.InterfaceScriptFragment) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");

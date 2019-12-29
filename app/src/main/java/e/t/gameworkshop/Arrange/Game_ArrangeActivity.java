@@ -43,8 +43,8 @@ import e.t.gameworkshop.Robot;
 import e.t.gameworkshop.ScriptManager;
 import e.t.gameworkshop.Space;
 
-public class Game_ArrangeActivity extends AppCompatActivity implements FragmentRobot.Data_FragToActivity, FragmentProgramming.InterfaceProgram,
-FragmentScript.InterfaceScript{
+public class Game_ArrangeActivity extends AppCompatActivity implements FragmentRobot.Interface_RobotFragment, FragmentProgramming.Interface_ProgramFragment,
+FragmentScript.InterfaceScriptFragment{
 
     private static Space[][] spaces;
     public static ArrangeDrawMap drawmapArrange;
@@ -126,15 +126,15 @@ FragmentScript.InterfaceScript{
                     selRobot = true;
                     selProgram = false;        // 다른 프래그먼트를 클릭했을 경우 이전 프래그먼트는 종료됨
                     selConnect = false;
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.fragment, new FragmentRobot());
+                    fragmentTransaction.commit();
                     fragment.setVisibility(View.VISIBLE);
                     notice.setVisibility(View.INVISIBLE);
                     BtnfragRobot.setBackgroundResource(R.drawable.button_borderline_selected);
                     BtnfragProgram.setBackgroundResource(R.drawable.button_borderline);
                     BtnfragConnect.setBackgroundResource(R.drawable.button_borderline);
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.fragment, new FragmentRobot());
-                    fragmentTransaction.commit();
                 } else {
                     selRobot = false;
                     BtnfragRobot.setBackgroundResource(R.drawable.button_borderline);
@@ -151,15 +151,12 @@ FragmentScript.InterfaceScript{
                     selRobot = false;
                     selProgram = true;
                     selConnect = false;
+                    ViewProgram();
                     fragment.setVisibility(View.VISIBLE);
                     notice.setVisibility(View.INVISIBLE);
                     BtnfragRobot.setBackgroundResource(R.drawable.button_borderline);
                     BtnfragProgram.setBackgroundResource(R.drawable.button_borderline_selected);
                     BtnfragConnect.setBackgroundResource(R.drawable.button_borderline);
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.fragment, new FragmentProgramming());
-                    fragmentTransaction.commit();
                 } else {
                     selProgram = false;
                     BtnfragProgram.setBackgroundResource(R.drawable.button_borderline);
@@ -176,15 +173,15 @@ FragmentScript.InterfaceScript{
                     selRobot = false;
                     selProgram = false;
                     selConnect = true;
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.fragment, new FragmentConnect());
+                    fragmentTransaction.commit();
                     fragment.setVisibility(View.VISIBLE);
                     notice.setVisibility(View.INVISIBLE);
                     BtnfragRobot.setBackgroundResource(R.drawable.button_borderline);
                     BtnfragProgram.setBackgroundResource(R.drawable.button_borderline);
                     BtnfragConnect.setBackgroundResource(R.drawable.button_borderline_selected);
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.fragment, new FragmentConnect());
-                    fragmentTransaction.commit();
                 } else {
                     selConnect = false;
                     BtnfragConnect.setBackgroundResource(R.drawable.button_borderline);

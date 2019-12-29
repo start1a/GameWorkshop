@@ -74,5 +74,4 @@ public class Stage_ArrangeActivity extends AppCompatActivity {
             startService(intent_audio);
         }
     }
-
 }

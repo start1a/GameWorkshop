@@ -45,9 +45,9 @@ public class FragmentProgramming extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private static InterfaceProgram mProgramListener;
+    private static Interface_ProgramFragment mProgramListener;
 
-    public interface InterfaceProgram {
+    public interface Interface_ProgramFragment {
         void ViewScript();
     }
 
@@ -165,8 +165,8 @@ public class FragmentProgramming extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof InterfaceProgram) {
-            mProgramListener = (InterfaceProgram) context;
+        if (context instanceof Interface_ProgramFragment) {
+            mProgramListener = (Interface_ProgramFragment) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -200,10 +200,6 @@ public class FragmentProgramming extends Fragment {
 
     public static int getIndexProgram() {
         return indexProgram;
-    }
-
-    public static InterfaceProgram getmProgramListener() {
-        return mProgramListener;
     }
 
     // 클릭 효과음

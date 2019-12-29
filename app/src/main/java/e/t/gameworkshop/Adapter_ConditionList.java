@@ -7,9 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.util.List;
-
 import e.t.gameworkshop.Arrange.FragmentScript;
 
 public class Adapter_ConditionList extends BaseAdapter {
